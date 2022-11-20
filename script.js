@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const localNotes = JSON.parse(localStorage.getItem("note"));
+  if (localNotes !== null) {
+    document.getElementById("localnotelist").innerHTML = localNotes.join('<br>');
+  }
+});
 let notes = [];
 let errors = [];
 
@@ -6,17 +12,14 @@ function addNote() {
   notes.push(note.value);
   checkValidity(note);
   generateComment();
-  saveNotesToLS();
   document.getElementById("error").innerHTML = errors;
   document.getElementById("note").value = "";
-
 }
 function checkValidity(note) {
   let validity = note.validity;
   if (validity.valueMissing) {
     errors.push("Поле " + note.placeholder + " не заполнено ");
   }
-  
 }
 function generateComment() {
   let optionsString = "";
@@ -24,4 +27,7 @@ function generateComment() {
     optionsString += `<p>${note}</p>`;
   }
   document.getElementById("notelist").innerHTML = optionsString;
+}
+function saveNotesToLS() {
+  localStorage.setItem("note", JSON.stringify(notes));
 }

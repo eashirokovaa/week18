@@ -7,6 +7,7 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="notelist" id="localnotelist"></div>
     <div class="notelist" id="notelist"></div>
       <label style="font-size: 18px;" for="note"> Заметка для себя любимой: </label>
       <div>
@@ -24,7 +25,8 @@
         />
       </div>
       <div id="error"></div>
-      <button style="margin-top: 15px;" onclick="addNote()">Сохранить</button>
+      <button style="margin-top: 15px;" onclick="addNote()">Добавить</button>
+      <button style="margin-top: 15px;" onclick="saveNotesToLS() ">Сохранить</button>
 
     <script src="/script.js"></script>
   </body>
