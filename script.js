@@ -1,17 +1,20 @@
+let localNotes = "";
 document.addEventListener("DOMContentLoaded", function () {
-  const localNotes = JSON.parse(localStorage.getItem("note"));
+    localNotes = JSON.parse(localStorage.getItem("note"));
   if (localNotes !== null) {
-    document.getElementById("localnotelist").innerHTML = localNotes.join('<br>');
+    document.getElementById("localnotelist").innerHTML =
+      localNotes.join(", ");
   }
 });
 let notes = [];
 let errors = [];
-
 function addNote() {
   let note = document.getElementById("note");
-  notes.push(note.value);
   checkValidity(note);
+  localNotes.push(note.value)
+  notes.push(note.value);
   generateComment();
+  saveNotesToLS();
   document.getElementById("error").innerHTML = errors;
   document.getElementById("note").value = "";
 }
@@ -29,5 +32,5 @@ function generateComment() {
   document.getElementById("notelist").innerHTML = optionsString;
 }
 function saveNotesToLS() {
-  localStorage.setItem("note", JSON.stringify(notes));
+  localStorage.setItem("note", JSON.stringify(localNotes));
 }
