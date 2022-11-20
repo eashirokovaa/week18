@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="notelist" id="notelist"></div>
+      <label style="font-size: 18px;" for="note"> Заметка для себя любимой: </label>
+      <div>
+        <input
+          style="
+            height: 150px;
+            width: 200px;
+            background-color: rgb(245, 235, 221);
+          "
+          type="text"
+          placeholder="Текст заметки"
+          name="note"
+          id="note"
+          required
+        />
+      </div>
+      <div id="error"></div>
+      <button style="margin-top: 15px;" onclick="addNote()">Сохранить</button>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
