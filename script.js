@@ -1,9 +1,8 @@
 let localNotes = "";
 document.addEventListener("DOMContentLoaded", function () {
-    localNotes = JSON.parse(localStorage.getItem("note"));
+  localNotes = JSON.parse(localStorage.getItem("note"));
   if (localNotes !== null) {
-    document.getElementById("localnotelist").innerHTML =
-      localNotes.join(", ");
+    document.getElementById("localnotelist").innerHTML = localNotes.join(", ");
   }
 });
 let notes = [];
@@ -11,7 +10,9 @@ let errors = [];
 function addNote() {
   let note = document.getElementById("note");
   checkValidity(note);
-  localNotes.push(note.value)
+  if (localNotes !== null) {
+    localNotes.push(note.value);
+  }
   notes.push(note.value);
   generateComment();
   saveNotesToLS();
@@ -32,5 +33,9 @@ function generateComment() {
   document.getElementById("notelist").innerHTML = optionsString;
 }
 function saveNotesToLS() {
-  localStorage.setItem("note", JSON.stringify(localNotes));
+  if (localNotes !== null) {
+    localStorage.setItem("note", JSON.stringify(localNotes));
+  } else {
+    localStorage.setItem("note", JSON.stringify(notes));
+  }
 }

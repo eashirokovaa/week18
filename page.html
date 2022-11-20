@@ -9,24 +9,25 @@
   <body>
     <div class="notelist" id="localnotelist"></div>
     <div class="notelist" id="notelist"></div>
-      <label style="font-size: 18px;" for="note"> Заметка для себя любимой: </label>
-      <div>
-        <input
-          style="
-            height: 150px;
-            width: 200px;
-            background-color: rgb(245, 235, 221);
-          "
-          type="text"
-          placeholder="Текст заметки"
-          name="note"
-          id="note"
-          required
-        />
-      </div>
-      <div id="error"></div>
-      <button style="margin-top: 15px;" onclick="addNote()">Сохранить</button>
-
+    <label style="font-size: 18px" for="note">
+      Заметка для себя любимой:
+    </label>
+    <div>
+      <input
+        style="
+          height: 150px;
+          width: 200px;
+          background-color: rgb(245, 235, 221);
+        "
+        type="text"
+        placeholder="Текст заметки"
+        name="note"
+        id="note"
+        required
+      />
+    </div>
+    <div id="error"></div>
+    <button style="margin-top: 15px" onclick="addNote()">Сохранить</button>
     <script src="/script.js"></script>
   </body>
 </html>
